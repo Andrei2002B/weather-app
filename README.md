@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# 🌤️ Weather App - React + Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Această aplicație este un **Proof of Concept (PoC)** care demonstrează utilizarea framework-ului **React** împreună cu **Hooks**, integrarea unui API extern (OpenWeather), salvarea datelor în `localStorage`, și utilizarea Context API pentru comutarea temei (Dark/Light).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🔧 Funcționalități
 
-### `npm start`
+- 🔍 Căutare meteo după oraș
+- 🌡️ Afișare temperatură, umiditate, vânt și condiții meteo
+- 🌓 Comutare între temă Dark / Light
+- 📌 Istoric ultimele 5 căutări (cu salvare în `localStorage`)
+- 💾 Persistență temă și istoric
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⚙️ Tehnologii folosite
 
-### `npm test`
+- **React** (Create React App)
+- **Hooks**: `useState`, `useEffect`, `useContext`
+- **Context API** – pentru gestionarea temei
+- **OpenWeather API** – pentru obținerea datelor meteo
+- **localStorage** – pentru salvarea temei și istoricului
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🗂️ Structura fișierelor
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── App.js              # Componenta principală
+├── ThemeContext.js     # Gestionare temă globală (dark/light)
+├── index.js            # Punctul de pornire al aplicației
+├── index.css           # Stiluri globale (minimale)
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧪 Cum rulezi aplicația
 
-### `npm run eject`
+### 1. Clonează proiectul:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/numele-tau/weather-app.git
+cd weather-app
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Instalează dependențele:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Adaugă cheia ta API în `App.js`
 
-## Learn More
+Obține o cheie gratuită de la https://openweathermap.org/api  
+Înlocuiește valoarea:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const API_KEY = 'CHEIA_TA_AICI';
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Pornește aplicația
 
-### Code Splitting
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🧠 Exemple de Hooks folosite
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```js
+// useState
+const [city, setCity] = useState('');
 
-### Making a Progressive Web App
+// useEffect
+useEffect(() => {
+  fetchWeather();
+}, [query]);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+// useContext (pentru temă)
+const { dark, toggleTheme } = useContext(ThemeContext);
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📃 Licență
 
-### Deployment
+Acest proiect este realizat ca PoC educațional. Poți folosi codul în scopuri personale sau educaționale.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🙋‍♂️ Autori
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 👤 [Bolboaca Andrei]
+- 📅 Iunie 2025
